@@ -1,6 +1,6 @@
 # Homebrew formula for iMessages AI
-# Install: brew tap maxawad/imessages-ai && brew install imessages-ai
-# Or:      brew install maxawad/imessages-ai/imessages-ai
+# Install: brew install maxawad/tap/imessages-ai
+# Tap repo: https://github.com/maxawad/homebrew-tap
 
 class ImessagesAi < Formula
   desc "ChatGPT-powered auto-responder for iMessage"

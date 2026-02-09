@@ -54,10 +54,10 @@ echo -e "${BLUE}Installing iMessages AI...${NC}"
 
 if brew list imessages-ai &>/dev/null 2>&1; then
     echo -e "${YELLOW}Upgrading existing installation...${NC}"
-    brew upgrade maxawad/imessages-ai/imessages-ai || true
+    brew upgrade maxawad/tap/imessages-ai || true
 else
-    brew tap maxawad/imessages-ai 2>/dev/null || true
-    brew install maxawad/imessages-ai/imessages-ai
+    brew tap maxawad/tap 2>/dev/null || true
+    brew install maxawad/tap/imessages-ai
 fi
 
 echo ""

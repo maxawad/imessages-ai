@@ -11,7 +11,7 @@ curl -fsSL https://raw.githubusercontent.com/maxawad/imessages-ai/main/install.s
 Or with Homebrew:
 
 ```bash
-brew install maxawad/imessages-ai/imessages-ai
+brew install maxawad/tap/imessages-ai
 imessages-ai setup
 ```
 
