@@ -309,9 +309,31 @@ cmd_help() {
 }
 
 # =====================================================================
+# Auto-setup: if no config exists, run setup first (then continue)
+# =====================================================================
+needs_config() {
+    # Commands that require a valid config
+    case "$1" in run|start|restart) return 0 ;; esac
+    return 1
+}
+
+if [ -z "${1:-}" ] || needs_config "${1:-}"; then
+    if [ ! -f "$CONFIG_FILE" ]; then
+        echo -e "${YELLOW}No configuration found. Let's set things up first.${NC}"
+        echo ""
+        cmd_setup
+        # If the user ran start/run, continue into that command
+        if [ -z "${1:-}" ]; then
+            echo -e "Run ${BOLD}imessages-ai start${NC} to begin listening."
+            exit 0
+        fi
+    fi
+fi
+
+# =====================================================================
 # Main
 # =====================================================================
-case "${1:-help}" in
+case "${1:-setup}" in
     setup)     cmd_setup ;;
     run)       cmd_run ;;
     start)     cmd_start ;;
