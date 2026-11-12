@@ -67,11 +67,11 @@ echo ""
 # ---- Run setup ----
 echo -e "${BOLD}Let's configure it now...${NC}"
 echo ""
-imessages-ai setup
+imessages-ai setup </dev/tty
 
 # ---- Offer to start ----
 echo ""
-read -rp "$(echo -e "${BOLD}Start iMessages AI now? [Y/n]${NC} ")" start_now
+read -rp "$(echo -e "${BOLD}Start iMessages AI now? [Y/n]${NC} ")" start_now </dev/tty
 if [[ ! "$start_now" =~ ^[Nn] ]]; then
     imessages-ai start
 fi

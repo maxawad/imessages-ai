@@ -52,7 +52,8 @@ cmd_setup() {
         fi
     fi
     if [ -z "$EXISTING_KEY" ]; then
-        read -rp "  Enter your OpenAI API key (sk-...): " api_key
+        read -rsp "  Enter your OpenAI API key (sk-...): " api_key
+        echo ""
         if [ -z "$api_key" ]; then
             echo -e "${RED}  Error: API key is required.${NC}"
             exit 1
@@ -86,6 +87,7 @@ cmd_setup() {
     fi
 
     # ---- Write config ----
+    umask 077
     cat > "$CONFIG_FILE" <<EOF
 # iMessages AI configuration
 # Docs: https://github.com/maxawad/imessages-ai
