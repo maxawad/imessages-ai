@@ -283,6 +283,7 @@ def ask_chatgpt(prompt: str, cfg: dict) -> str:
 
 def send_imessage(chat_guid: str, text: str) -> bool:
     escaped = text.replace("\\", "\\\\").replace('"', '\\"')
+    chat_guid = chat_guid.replace("\\", "\\\\").replace('"', '\\"')
     script = (
         'tell application "Messages"\n'
         f'  set targetChat to a reference to chat id "{chat_guid}"\n'
